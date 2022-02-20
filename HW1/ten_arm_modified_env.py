@@ -60,7 +60,8 @@ class EnvironmentModified(BaseEnvironment):
             (float, state, Boolean): a tuple of the reward, state observation,
                 and boolean indicating if it's terminal.
         """
-        self.arms += [np.random.normal(0, 0.01) for _ in range(10)]
+        delta = [np.random.normal(0, 0.01) for _ in range(10)]
+        self.arms = np.add(self.arms, delta)
 
         reward = self.arms[action] + np.random.randn()
 
